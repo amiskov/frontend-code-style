@@ -1,7 +1,7 @@
 module.exports = {
-    title: 'Стиль кода HTML, CSS, JS, jQuery',
+    title: 'Руководство фронтенд-разработчика по оформлению кода',
     description: '',
-    // base: '/frontend-codestyle/',
+    base: '/frontend-code-style/',
     themeConfig: {
         sidebar: [{
                 title: 'Верстка',
@@ -16,8 +16,15 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '/js',
-                    '/jquery',
-                    '/commonjs'
+                    '/jquery'
+                ]
+            },
+            {
+                title: 'Архитектура',
+                collapsable: false,
+                children: [
+                    '/commonjs',
+                    '/components'
                 ]
             }
         ]
