@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Руководство фронтенд-разработчика по оформлению кода | JavaScript</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/frontend-code-style/assets/css/6.styles.6fa4311b.css" as="style"><link rel="preload" href="/frontend-code-style/assets/js/app.9faa1e35.js" as="script"><link rel="preload" href="/frontend-code-style/assets/js/2.6f00996f.js" as="script"><link rel="prefetch" href="/frontend-code-style/assets/js/0.8db209ef.js"><link rel="prefetch" href="/frontend-code-style/assets/js/1.61353ea2.js"><link rel="prefetch" href="/frontend-code-style/assets/js/3.9581a938.js"><link rel="prefetch" href="/frontend-code-style/assets/js/4.1808af6e.js"><link rel="prefetch" href="/frontend-code-style/assets/js/5.faff550a.js">
+    <link rel="stylesheet" href="/frontend-code-style/assets/css/6.styles.6fa4311b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/frontend-code-style/" class="home-link router-link-active"><!----><span class="site-name">
+      Руководство фронтенд-разработчика по оформлению кода
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>Верстка</span><!----></p><ul class="sidebar-group-items"><li><a href="/frontend-code-style/html.html" class="sidebar-link">HTML, БЭМ</a></li><li><a href="/frontend-code-style/less.html" class="sidebar-link">LESS</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>JS, jQuery</span><!----></p><ul class="sidebar-group-items"><li><a href="/frontend-code-style/js.html" class="active sidebar-link">JavaScript</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#отступы" class="sidebar-link">Отступы</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#переменные" class="sidebar-link">Переменные</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#инкремент-декремент" class="sidebar-link">Инкремент/декремент</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#кавычки" class="sidebar-link">Кавычки</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#переводы-строк" class="sidebar-link">Переводы строк</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#бnоки-кода" class="sidebar-link">Блоки кода</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#тернарный-оператор" class="sidebar-link">Тернарный оператор</a></li><li class="sidebar-sub-header"><a href="/frontend-code-style/js.html#переменные-с-кnассами-и-айдишниками" class="sidebar-link">Переменные с классами и айдишниками</a></li></ul></li><li><a href="/frontend-code-style/jquery.html" class="sidebar-link">jQuery</a></li><li><a href="/frontend-code-style/commonjs.html" class="sidebar-link">CommonJS</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="javascript"><a href="#javascript" aria-hidden="true" class="header-anchor">#</a> JavaScript</h1><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>На разных проектах правила и настройки линтера могут отличаться. Здесь собрана золотая середина.</p></div><h2 id="отступы"><a href="#отступы" aria-hidden="true" class="header-anchor">#</a> Отступы</h2><p>Для отступов используем пробелы.</p><p>Ширина отступа — 4 пробела.</p><h2 id="переменные"><a href="#переменные" aria-hidden="true" class="header-anchor">#</a> Переменные</h2><h3 id="var"><a href="#var" aria-hidden="true" class="header-anchor">#</a> var</h3><p><code>var</code> не используем там, где есть поддержка ES6+.</p><h3 id="const"><a href="#const" aria-hidden="true" class="header-anchor">#</a> const</h3><p><code>const</code> используем для именования переменных, которым далее в коде не будет присвоено другое значение:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> elementId <span class="token operator">=</span> <span class="token string">'#productGallery'</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>const</code> прекрасно подходит для DOM-элементов. Даже если на элемент навесится событие, добавится класс, изменится свойство и пр. В переменную сохраняется ссылка на объект и эта ссылка будет постоянна. Это же касается массивов и объектов:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Это все ок</span>
+<span class="token keyword">const</span> $btn <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myButton'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$btn<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> myObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+myObj<span class="token punctuation">.</span>myProp <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p>Константы в глобальном окружении модуля (файла) именуем КАПСЛОКОМ:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">ENV</span> <span class="token operator">=</span> <span class="token string">'development'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="let"><a href="#let" aria-hidden="true" class="header-anchor">#</a> let</h3><p><code>let</code> используем для переменных, значение которых в коде будет меняться:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> name<span class="token punctuation">;</span> <span class="token comment">// Объявили переменную, значение будет присвоено позже</span>
+<span class="token comment">// ...</span>
+name <span class="token operator">=</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="объявnение"><a href="#объявnение" aria-hidden="true" class="header-anchor">#</a> Объявление</h3><p>Каждая переменная объявляется на своей строке со своим ключевым словом. Так код будет удобнее поддерживать, проще удалять объявления переменных или менять <code>const</code> на <code>let</code>:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо, пачка переменных с одним ключевым словом и на одной строке</span>
+<span class="token keyword">let</span> menu<span class="token punctuation">,</span> height<span class="token punctuation">,</span> width<span class="token punctuation">;</span>
+
+<span class="token comment">// Хорошо, каждая переменная на свой строке и со значением</span>
+<span class="token keyword">const</span> menu <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#menu'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> height <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> width <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="инкремент-декремент"><a href="#инкремент-декремент" aria-hidden="true" class="header-anchor">#</a> Инкремент/декремент</h2><p>Вместо <code>++</code> используем более явное <code>+= 1</code>.</p><p><code>++</code> можно использовать только в шаге цикла <code>for</code> (но не в его теле):</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// тут `++` ок</span>
+    sum <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// А тут уже надо `+=`</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Операторы инкремента/декремента слишком путанно работают. Нужно тратить драгоценные секунды, чтобы сообразить, что вернет оператор, если будет находится до/после переменной.</p><h2 id="кавычки"><a href="#кавычки" aria-hidden="true" class="header-anchor">#</a> Кавычки</h2><p>Используем одинарные кавычки. Двойные можно применять, если не хватает одинарных (по возможности избегаем экранирования):</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо:</span>
+<span class="token string">&quot;use strict&quot;</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;a[href^=\&quot;http://\&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Хорошо:</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'a[href^=&quot;http://&quot;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="переводы-строк"><a href="#переводы-строк" aria-hidden="true" class="header-anchor">#</a> Переводы строк</h2><p>В конце строки не должно быть лишних пробелов.</p><p>Каждая строка должна заканчиваться символом перевода строки, в том числе последняя. То есть в конце файла должна быть пустая строка.</p><p>Это стандарт в UNIX-системах для файлов. Важно при работе в консоли (например, при объединении файлов) и считается вообще хорошим тоном.</p><h2 id="бnоки-кода"><a href="#бnоки-кода" aria-hidden="true" class="header-anchor">#</a> Блоки кода</h2><h3 id="отступ-первой-строки"><a href="#отступ-первой-строки" aria-hidden="true" class="header-anchor">#</a> Отступ первой строки</h3><p>В блоке кода (между скобками <code>{</code> и <code>}</code>) не отступаем строку сверху:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо</span>
+<span class="token keyword">function</span> <span class="token function">showFirstPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token function">renderPoint</span><span class="token punctuation">(</span>$firstItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $firstItem<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> itemId <span class="token operator">=</span> $firstItem<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'point-id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">renderInfo</span><span class="token punctuation">(</span>itemId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Хорошо</span>
+<span class="token keyword">function</span> <span class="token function">showFirstPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">renderPoint</span><span class="token punctuation">(</span>$firstItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $firstItem<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> itemId <span class="token operator">=</span> $firstItem<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'point-id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">renderInfo</span><span class="token punctuation">(</span>itemId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Допускается и рекомендуется отбивать пустой строкой логически связанные строки кода.</p><h3 id="if-else"><a href="#if-else" aria-hidden="true" class="header-anchor">#</a> if/else</h3><p>Блок <code>else</code> нужно начинать на той же строке, на которой закрывается блок <code>if</code>:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>width <span class="token operator">&lt;</span> <span class="token number">1025</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do this </span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do that </span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Хорошо</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>width <span class="token operator">&lt;</span> <span class="token number">1025</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do this </span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do that </span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>По возможности используем <a href="https://refactoring.guru/ru/replace-nested-conditional-with-guard-clauses" target="_blank" rel="noopener noreferrer">guard clause<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо, лишний `else`</span>
+<span class="token keyword">const</span> <span class="token function-variable function">assertString</span> <span class="token operator">=</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> str <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Хорошо. То же самое, но код чище</span>
+<span class="token keyword">const</span> <span class="token function-variable function">assertString</span> <span class="token operator">=</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> str <span class="token operator">!==</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="тернарный-оператор"><a href="#тернарный-оператор" aria-hidden="true" class="header-anchor">#</a> Тернарный оператор</h2><p>Тернарный оператор:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Плохо, слишком много кода</span>
+<span class="token keyword">let</span> stickyHeaderHeight<span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>windowWidth <span class="token operator">&lt;</span> <span class="token number">1025</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    stickyHeaderHeight <span class="token operator">=</span> headerHeight<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    stickyHeaderHeight <span class="token operator">=</span> stickyHeight<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Хорошо, кода гораздо меньше</span>
+<span class="token keyword">const</span> stickyHeaderHeight <span class="token operator">=</span> windowWidth <span class="token operator">&lt;</span> <span class="token number">1025</span> <span class="token operator">?</span> headerHeight <span class="token punctuation">:</span> stickyHeight<span class="token punctuation">;</span>
+</code></pre></div><h2 id="переменные-с-кnассами-и-айдишниками"><a href="#переменные-с-кnассами-и-айдишниками" aria-hidden="true" class="header-anchor">#</a> Переменные с классами и айдишниками</h2><p>Классы и айдишники нужно сохранять в переменные без точки и решетки:</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> closeInfoBtn <span class="token operator">=</span> <span class="token string">'shopInfoClose'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> addressItem <span class="token operator">=</span> <span class="token string">'js-address-item'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> menuItemActive <span class="token operator">=</span> <span class="token string">'menu__item_active'</span><span class="token punctuation">;</span>
+</code></pre></div><p>Обращаться к элементам можно будет так:</p><div class="language-js extra-class"><pre class="language-js"><code>$infoItem<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token string">'#'</span> <span class="token operator">+</span> closeInfoBtn<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>closeInfoBlock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+$addressContainer<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token string">'.'</span> <span class="token operator">+</span> addressItem<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>setPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Таким образом мы сможем без труда использовать эти переменные в манипуляциях, где не нужны точки и решетки:</p><div class="language-js extra-class"><pre class="language-js"><code>$menuItem<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span>menuItevActive<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div><div class="content edit-link"><!----><!----></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/frontend-code-style/less.html" class="prev">
+          LESS
+        </a></span><span class="next"><a href="/frontend-code-style/jquery.html">
+          jQuery
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/frontend-code-style/assets/js/2.6f00996f.js" defer></script><script src="/frontend-code-style/assets/js/app.9faa1e35.js" defer></script>
+  </body>
+</html>
